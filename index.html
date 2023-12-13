@@ -229,15 +229,13 @@
 
         const ntFyResponse = await fetch('https://ntfy.sh/shivarchit-com', {
           method: 'POST',
-          body: `
-                    The user agent is "${userAgent}" and the IP address is "${ipAddress}".
+          body: `The user agent is "${userAgent}" and the IP address is "${ipAddress}".
                     Locatin Info: The city is ${locationInfo.city} and the region is ${locationInfo.region} 
                     Someone came, no idea who?.
                     `,
           headers: {
             'Title': `Main page ${window.location.href.split(".com/")[1]}`,
-            'Priority': 'rotating_light',
-            'Content-Type': 'application/json'
+            'Priority': 'rotating_light'            
           }
         });
 
