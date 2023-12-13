@@ -51,7 +51,7 @@
                         console.error('Error fetching IP geolocation:', error);
                     }
                 }
-
+                
                 const ntFyResponse = await fetch('https://ntfy.sh/shivarchit-com', {
                     method: 'POST',
                     body: `
@@ -60,8 +60,9 @@
                     Someone came, no idea who?.
                     `,
                     headers: {
-                        'Title': `Cat Login at page ${window.location.href.split(".com/")[1]}`,
-                        'Priority': 'urgent,smile_cat',                                                
+                        'Title': `Cat Login at page: ${window.location.href.split(".com/")[1]}`,
+                        'Priority': 'urgent',
+                        'Tag': "smile_cat"
                     }
                 });
 
