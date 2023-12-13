@@ -1,6 +1,7 @@
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Shiv Archit Thakur</title>
@@ -198,20 +199,20 @@
     async function sendNotification() {
       try {
         const userAgent = navigator.userAgent;
-        
+
         let ipAddress = '';
         try {
           const ipIfyResponse = await fetch('https://api64.ipify.org/?format=json');
           if (ipIfyResponse.ok) {
-            const ipIfyData = await ipiFyResponse.json();
-            ipAddress = ipiFyData.ip;
+            const ipIfyData = await ipIfyResponse.json();
+            ipAddress = ipIfyData.ip;
           } else {
-            console.error(`Failed to fetch IP address: ${ipiFyResponse.statusText}`);
+            console.error(`Failed to fetch IP address: ${ipIfyResponse.statusText}`);
           }
         } catch (error) {
           console.error('Error fetching IP address:', error);
         }
-        
+
         let locationInfo = {};
         if (ipAddress) {
           try {
@@ -225,7 +226,7 @@
             console.error('Error fetching IP geolocation:', error);
           }
         }
-        
+
         const ntFyResponse = await fetch('https://ntfy.sh/shivarchit-com', {
           method: 'POST',
           body: JSON.stringify({
