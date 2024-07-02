@@ -51,25 +51,27 @@
                         console.error('Error fetching IP geolocation:', error);
                     }
                 }
-                
-                const ntFyResponse = await fetch('https://ntfy.sh/shivarchit-com', {
-                    method: 'POST',
-                    body: `
+
+                if (!userAgent?.includes("Googlebot")) {
+                    const ntFyResponse = await fetch('https://ntfy.sh/shivarchit-com', {
+                        method: 'POST',
+                        body: `
                     The user agent is "${userAgent}" and the IP address is "${ipAddress}".
                     Locatin Info: The city is ${locationInfo.city} and the region is ${locationInfo.region} 
                     Someone came, no idea who?.
                     `,
-                    headers: {
-                        'Title': `Cat Login at page: ${window.location.href.split(".com/")[1]}`,
-                        'Priority': 'urgent',
-                        'Tag': "smile_cat"
-                    }
-                });
+                        headers: {
+                            'Title': `Cat Login at page: ${window.location.href.split(".com/")[1]}`,
+                            'Priority': 'urgent',
+                            'Tag': "smile_cat"
+                        }
+                    });
 
-                if (ntFyResponse.ok) {
-                    console.log('Notification sent successfully!');
-                } else {
-                    console.error(`Failed to send notification: ${ntFyResponse.statusText}`);
+                    if (ntFyResponse.ok) {
+                        console.log('Notification sent successfully!');
+                    } else {
+                        console.error(`Failed to send notification: ${ntFyResponse.statusText}`);
+                    }
                 }
 
             } catch (error) {
