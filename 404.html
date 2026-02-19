@@ -21,66 +21,61 @@
     <link href="stylesheets/stylesheet.css" rel="stylesheet">
 
     <script>
-        async function sendNotification() {
-            try {
-                const userAgent = navigator.userAgent;
+async function sendNotification() {
+    try {
 
-                let ipAddress = '';
-                try {
-                    const ipIfyResponse = await fetch('https://api64.ipify.org/?format=json');
-                    if (ipIfyResponse.ok) {
-                        const ipIfyData = await ipIfyResponse.json();
-                        ipAddress = ipIfyData.ip;
-                    } else {
-                        console.error(`Failed to fetch IP address: ${ipIfyResponse.statusText}`);
-                    }
-                } catch (error) {
-                    console.error('Error fetching IP address:', error);
-                }
+        // Ignore bots
+        if (/bot|crawl|spider|preview/i.test(navigator.userAgent)) return;
 
-                let locationInfo = {};
-                if (ipAddress) {
-                    try {
-                        const ipApiResponse = await fetch(`https://ipapi.co/${ipAddress}/json/`);
-                        if (ipApiResponse.ok) {
-                            locationInfo = await ipApiResponse.json();
-                        } else {
-                            console.error(`Failed to fetch IP geolocation: ${ipApiResponse.statusText}`);
-                        }
-                    } catch (error) {
-                        console.error('Error fetching IP geolocation:', error);
-                    }
-                }
+        // Prevent refresh spam
+        if (sessionStorage.getItem("notified_404")) return;
+        sessionStorage.setItem("notified_404", "true");
 
-                if (!userAgent?.includes("Googlebot")) {
-                    const ntFyResponse = await fetch('https://ntfy.sh/shivarchit-com', {
-                        method: 'POST',
-                        body: `
-                    The user agent is "${userAgent}" and the IP address is "${ipAddress}".
-                    Locatin Info: The city is ${locationInfo.city} and the region is ${locationInfo.region} 
-                    Someone came, no idea who?.
-                    `,
-                        headers: {
-                            'Title': `Cat Login at page: ${window.location.href.split(".com/")[1]}`,
-                            'Priority': 'urgent',
-                            'Tag': "smile_cat"
-                        }
-                    });
+        const userAgent = navigator.userAgent;
+        const platform = navigator.platform;
+        const page = window.location.href;
 
-                    if (ntFyResponse.ok) {
-                        console.log('Notification sent successfully!');
-                    } else {
-                        console.error(`Failed to send notification: ${ntFyResponse.statusText}`);
-                    }
-                }
+        // Fetch IP + location (single API call)
+        const response = await fetch("https://ipapi.co/json/");
+        const data = await response.json();
 
-            } catch (error) {
-                console.error('Error:', error);
+        const message = `
+🚨 404 Page Disturbed
+
+Page URL: ${page}
+
+Platform: ${platform}
+User-Agent: ${userAgent}
+
+IP Address: ${data.ip || "Unknown"}
+
+City: ${data.city || "Unknown"}
+Region: ${data.region || "Unknown"}
+Country: ${data.country_name || "Unknown"}
+
+Org: ${data.org || "Unknown"}
+
+Time: ${new Date().toLocaleString()}
+        `;
+
+        await fetch("https://ntfy.sh/shivarchit-com", {
+            method: "POST",
+            body: message,
+            headers: {
+                "Title": "404 Alert 😼",
+                "Priority": "urgent",
+                "Tags": "warning,cat"
             }
-        }
-        sendNotification();
+        });
 
-    </script>
+    } catch (error) {
+        console.log("Notification error:", error);
+    }
+}
+
+sendNotification();
+</script>
+
 
 
 
@@ -135,13 +130,23 @@
         <div class="message">
             <h2>You disturbed my catnap!</h2>
             <p>The page you're looking for does not exist</p><br>
+            <div class="details">
+            Shiv Archit Thakur · +91 97796 55828 · architshi@gmail.com
         </div>
+        </div>
+        
     </div>
 
 </body>
 
 </html>
 <style>
+ .details {
+            margin-top: 14px;
+            font-size: 12px;
+            color: #6B7280;
+            letter-spacing: 0.5px;
+        }
     body {
         font-family: 'Open Sans', Helvetica, Arial, sans-serif !important;
         font-weight: lighter;
