@@ -46,6 +46,20 @@
       "manageUrl": "https://youtube.com/paid_memberships"
     },
     {
+      "key": "youtube_music",
+      "name": "YouTube Music",
+      "icon": "youtube_music",
+      "color": "#FF0000",
+      "category": "Music",
+      "plans": [
+        {"tier": "Individual", "cost": {"USD": 10.99, "INR": 119, "EUR": 9.99, "GBP": 9.99}, "cycle": "monthly"},
+        {"tier": "Family", "cost": {"USD": 16.99, "INR": 179, "EUR": 14.99, "GBP": 14.99}, "cycle": "monthly"},
+        {"tier": "Student", "cost": {"USD": 5.49, "INR": 59, "EUR": 4.99, "GBP": 4.99}, "cycle": "monthly"}
+      ],
+      "appUrl": "youtubemusic://",
+      "manageUrl": "https://music.youtube.com/paid_memberships"
+    },
+    {
       "key": "chatgpt",
       "name": "ChatGPT",
       "icon": "chatgpt",
