@@ -1,0 +1,211 @@
+x{
+  "version": 2,
+  "services": [
+    {
+      "key": "spotify",
+      "name": "Spotify",
+      "icon": "spotify",
+      "color": "#1DB954",
+      "category": "Music",
+      "plans": [
+        {"tier": "Individual", "cost": {"USD": 11.99, "INR": 119, "EUR": 10.99, "GBP": 10.99}, "cycle": "monthly"},
+        {"tier": "Duo", "cost": {"USD": 16.99, "INR": 149, "EUR": 14.99, "GBP": 14.99}, "cycle": "monthly"},
+        {"tier": "Family", "cost": {"USD": 19.99, "INR": 179, "EUR": 17.99, "GBP": 17.99}, "cycle": "monthly"},
+        {"tier": "Student", "cost": {"USD": 5.99, "INR": 59, "EUR": 5.99, "GBP": 5.99}, "cycle": "monthly"}
+      ],
+      "appUrl": "spotify://",
+      "manageUrl": "https://spotify.com/account/"
+    },
+    {
+      "key": "netflix",
+      "name": "Netflix",
+      "icon": "netflix",
+      "color": "#E50914",
+      "category": "Entertainment",
+      "plans": [
+        {"tier": "Standard with Ads", "cost": {"USD": 6.99, "INR": 149, "EUR": 5.49, "GBP": 4.99}, "cycle": "monthly"},
+        {"tier": "Standard", "cost": {"USD": 15.49, "INR": 649, "EUR": 12.99, "GBP": 10.99}, "cycle": "monthly"},
+        {"tier": "Premium", "cost": {"USD": 22.99, "INR": 899, "EUR": 17.99, "GBP": 17.99}, "cycle": "monthly"}
+      ],
+      "appUrl": "netflix://",
+      "manageUrl": "https://netflix.com/account"
+    },
+    {
+      "key": "youtube",
+      "name": "YouTube",
+      "icon": "youtube",
+      "color": "#FF0000",
+      "category": "Entertainment",
+      "plans": [
+        {"tier": "Premium Individual", "cost": {"USD": 13.99, "INR": 149, "EUR": 11.99, "GBP": 11.99}, "cycle": "monthly"},
+        {"tier": "Premium Family", "cost": {"USD": 22.99, "INR": 189, "EUR": 17.99, "GBP": 17.99}, "cycle": "monthly"},
+        {"tier": "Premium Student", "cost": {"USD": 7.99, "INR": 79, "EUR": 6.99, "GBP": 6.99}, "cycle": "monthly"},
+        {"tier": "Music Individual", "cost": {"USD": 10.99, "INR": 119, "EUR": 9.99, "GBP": 9.99}, "cycle": "monthly"}
+      ],
+      "appUrl": "youtube://",
+      "manageUrl": "https://youtube.com/paid_memberships"
+    },
+    {
+      "key": "chatgpt",
+      "name": "ChatGPT",
+      "icon": "chatgpt",
+      "color": "#10A37F",
+      "category": "AI",
+      "plans": [
+        {"tier": "Plus", "cost": {"USD": 20.00, "INR": 1950, "EUR": 20.00, "GBP": 20.00}, "cycle": "monthly"},
+        {"tier": "Pro", "cost": {"USD": 200.00, "INR": 19500, "EUR": 200.00, "GBP": 200.00}, "cycle": "monthly"},
+        {"tier": "Team", "cost": {"USD": 25.00, "INR": 2450, "EUR": 25.00, "GBP": 25.00}, "cycle": "monthly"}
+      ],
+      "appUrl": "",
+      "manageUrl": "https://chat.openai.com/settings"
+    },
+    {
+      "key": "github",
+      "name": "GitHub",
+      "icon": "github",
+      "color": "#6E40C9",
+      "category": "Development",
+      "plans": [
+        {"tier": "Pro", "cost": {"USD": 4.00, "INR": 330, "EUR": 3.67, "GBP": 3.17}, "cycle": "monthly"},
+        {"tier": "Team", "cost": {"USD": 4.00, "INR": 330, "EUR": 3.67, "GBP": 3.17}, "cycle": "monthly"}
+      ],
+      "appUrl": "",
+      "manageUrl": "https://github.com/settings/billing"
+    },
+    {
+      "key": "icloud",
+      "name": "iCloud+",
+      "icon": "icloud",
+      "color": "#3693F3",
+      "category": "Storage",
+      "plans": [
+        {"tier": "50GB", "cost": {"USD": 0.99, "INR": 75, "EUR": 0.99, "GBP": 0.79}, "cycle": "monthly"},
+        {"tier": "200GB", "cost": {"USD": 2.99, "INR": 219, "EUR": 2.99, "GBP": 2.49}, "cycle": "monthly"},
+        {"tier": "2TB", "cost": {"USD": 9.99, "INR": 749, "EUR": 9.99, "GBP": 6.99}, "cycle": "monthly"},
+        {"tier": "6TB", "cost": {"USD": 29.99, "INR": 2299, "EUR": 29.99, "GBP": 21.99}, "cycle": "monthly"}
+      ],
+      "appUrl": "",
+      "manageUrl": "https://appleid.apple.com/"
+    },
+    {
+      "key": "notion",
+      "name": "Notion",
+      "icon": "notion",
+      "color": "#000000",
+      "category": "Productivity",
+      "plans": [
+        {"tier": "Plus", "cost": {"USD": 10.00, "INR": 600, "EUR": 9.50, "GBP": 8.00}, "cycle": "monthly"},
+        {"tier": "Business", "cost": {"USD": 18.00, "INR": 1080, "EUR": 17.00, "GBP": 14.50}, "cycle": "monthly"}
+      ],
+      "appUrl": "notion://",
+      "manageUrl": "https://notion.so/settings"
+    },
+    {
+      "key": "figma",
+      "name": "Figma",
+      "icon": "figma",
+      "color": "#A259FF",
+      "category": "Design",
+      "plans": [
+        {"tier": "Professional", "cost": {"USD": 12.00, "INR": 990, "EUR": 12.00, "GBP": 10.00}, "cycle": "monthly"},
+        {"tier": "Organization", "cost": {"USD": 45.00, "INR": 3700, "EUR": 45.00, "GBP": 38.00}, "cycle": "monthly"}
+      ],
+      "appUrl": "figma://",
+      "manageUrl": "https://figma.com/settings"
+    },
+    {
+      "key": "discord",
+      "name": "Discord",
+      "icon": "discord",
+      "color": "#5865F2",
+      "category": "Social",
+      "plans": [
+        {"tier": "Nitro", "cost": {"USD": 9.99, "INR": 650, "EUR": 9.99, "GBP": 8.49}, "cycle": "monthly"},
+        {"tier": "Nitro Basic", "cost": {"USD": 2.99, "INR": 195, "EUR": 2.99, "GBP": 2.49}, "cycle": "monthly"}
+      ],
+      "appUrl": "discord://",
+      "manageUrl": "https://discord.com/settings/subscriptions"
+    },
+    {
+      "key": "apple_music",
+      "name": "Apple Music",
+      "icon": "apple_music",
+      "color": "#FC3C44",
+      "category": "Music",
+      "plans": [
+        {"tier": "Individual", "cost": {"USD": 10.99, "INR": 99, "EUR": 10.99, "GBP": 10.99}, "cycle": "monthly"},
+        {"tier": "Family", "cost": {"USD": 16.99, "INR": 149, "EUR": 16.99, "GBP": 16.99}, "cycle": "monthly"},
+        {"tier": "Student", "cost": {"USD": 5.99, "INR": 49, "EUR": 5.99, "GBP": 5.99}, "cycle": "monthly"}
+      ],
+      "appUrl": "music://",
+      "manageUrl": "https://music.apple.com/account"
+    },
+    {
+      "key": "google_one",
+      "name": "Google One",
+      "icon": "google_one",
+      "color": "#4285F4",
+      "category": "Storage",
+      "plans": [
+        {"tier": "100GB", "cost": {"USD": 1.99, "INR": 130, "EUR": 1.99, "GBP": 1.59}, "cycle": "monthly"},
+        {"tier": "200GB", "cost": {"USD": 2.99, "INR": 210, "EUR": 2.99, "GBP": 2.49}, "cycle": "monthly"},
+        {"tier": "2TB", "cost": {"USD": 9.99, "INR": 650, "EUR": 9.99, "GBP": 7.99}, "cycle": "monthly"}
+      ],
+      "appUrl": "",
+      "manageUrl": "https://one.google.com/settings"
+    },
+    {
+      "key": "adobe",
+      "name": "Adobe CC",
+      "icon": "adobe",
+      "color": "#FF0000",
+      "category": "Design",
+      "plans": [
+        {"tier": "All Apps", "cost": {"USD": 54.99, "INR": 4230, "EUR": 59.99, "GBP": 51.98}, "cycle": "monthly"},
+        {"tier": "Photography", "cost": {"USD": 9.99, "INR": 888, "EUR": 11.89, "GBP": 9.98}, "cycle": "monthly"},
+        {"tier": "Single App", "cost": {"USD": 22.99, "INR": 1675, "EUR": 23.79, "GBP": 19.97}, "cycle": "monthly"}
+      ],
+      "appUrl": "",
+      "manageUrl": "https://account.adobe.com/plans"
+    },
+    {
+      "key": "slack",
+      "name": "Slack",
+      "icon": "slack",
+      "color": "#4A154B",
+      "category": "Productivity",
+      "plans": [
+        {"tier": "Pro", "cost": {"USD": 8.75, "INR": 245, "EUR": 7.25, "GBP": 6.19}, "cycle": "monthly"},
+        {"tier": "Business+", "cost": {"USD": 12.50, "INR": 350, "EUR": 10.50, "GBP": 8.99}, "cycle": "monthly"}
+      ],
+      "appUrl": "slack://",
+      "manageUrl": "https://slack.com/account/settings"
+    },
+    {
+      "key": "claude",
+      "name": "Claude",
+      "icon": "chatgpt",
+      "color": "#D4A574",
+      "category": "AI",
+      "plans": [
+        {"tier": "Pro", "cost": {"USD": 20.00, "INR": 1950, "EUR": 20.00, "GBP": 18.00}, "cycle": "monthly"},
+        {"tier": "Team", "cost": {"USD": 25.00, "INR": 2450, "EUR": 25.00, "GBP": 22.00}, "cycle": "monthly"}
+      ],
+      "appUrl": "",
+      "manageUrl": "https://claude.ai/settings"
+    },
+    {
+      "key": "linkedin",
+      "name": "LinkedIn",
+      "icon": "mi_star",
+      "color": "#0A66C2",
+      "category": "Social",
+      "plans": [
+        {"tier": "Premium Career", "cost": {"USD": 29.99, "INR": 1500, "EUR": 29.99, "GBP": 24.99}, "cycle": "monthly"},
+        {"tier": "Premium Business", "cost": {"USD": 59.99, "INR": 3500, "EUR": 54.99, "GBP": 44.99}, "cycle": "monthly"}
+      ],
+      "appUrl": "linkedin://",
+      "manageUrl": "https://linkedin.com/mypreferences/d/categories/account"
+    }
+  ]
+}
