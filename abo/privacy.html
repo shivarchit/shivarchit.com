@@ -87,6 +87,26 @@
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-4px); }
   }
+  .wallpaper,
+.glass-panel,
+.blob {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+@media (max-width: 768px) {
+  .glass-panel::before {
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+  }
+
+  .blob {
+    animation: none;
+  }
+
+  .grain {
+    display: none;
+  }
+}
 
   /* The actual glass surface — base layer */
   .glass-panel::before {
@@ -359,7 +379,7 @@
 
         <section>
           <h2>Contact</h2>
-          <p><a href="mailto:&lt;CONTACT_EMAIL&gt;">&lt;CONTACT_EMAIL&gt;</a></p>
+          <p><a href="mailto:&lt;CONTACT_EMAIL&gt;">archies.dev.labs@gmail.com</a></p>
         </section>
       </div>
 
