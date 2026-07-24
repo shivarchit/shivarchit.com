@@ -345,7 +345,7 @@
             <div class="brand-tag">Privacy Policy</div>
           </div>
         </div>
-        <div class="version-pill">v1.0 · Jun 2 2026</div>
+        <div class="version-pill">v1.1 · Jul 24 2026</div>
       </div>
 
       <h1>Your data stays<br>on <em>your phone</em>.</h1>
@@ -356,6 +356,7 @@
       <div class="promise">
         <div class="promise-row"><div class="check">✓</div><div>Stored on your device only</div></div>
         <div class="promise-row"><div class="check">✓</div><div>Local notifications for renewals</div></div>
+        <div class="promise-row"><div class="check">✓</div><div>Bank SMS parsed on-device — never uploaded</div></div>
         <div class="promise-row"><div class="check">✓</div><div>Export anytime as JSON or CSV</div></div>
         <div class="promise-row"><div class="cross">✕</div><div>No analytics, telemetry, or ads</div></div>
         <div class="promise-row"><div class="cross">✕</div><div>No account, no cloud sync</div></div>
@@ -369,7 +370,12 @@
 
         <section>
           <h2>Permissions</h2>
-          <p><b>Notifications</b> for renewal reminders. <b>Internet</b> for the catalog above. Nothing else.</p>
+          <p><b>Notifications</b> for renewal reminders. <b>Alarms &amp; reminders</b> so those fire on time. <b>Internet</b> for the catalog above. <b>SMS</b> — optional, off by default, explained below.</p>
+        </section>
+
+        <section>
+          <h2>SMS scanning — optional, on-device</h2>
+          <p>If you enable <b>Scan SMS for payments</b>, abo reads bank transaction SMS on your device to detect subscription debits (e.g. <code>Rs 649 debited … NETFLIX</code>) and recurring charges. Parsing happens <b>entirely on your phone</b> — message content is never transmitted, uploaded, or shared with anyone; abo has no server. Only payment-shaped bank alerts are considered: personal messages, OTPs and promotions are ignored and never stored. Nothing is recorded automatically — detections wait in a daily review screen until <b>you confirm</b> them. The feature is opt-in during setup, and you can turn it off anytime in Settings or by revoking the SMS permission in Android settings.</p>
         </section>
 
         <section>
@@ -379,7 +385,7 @@
 
         <section>
           <h2>Contact</h2>
-          <p><a href="mailto:&lt;CONTACT_EMAIL&gt;">archies.dev.labs@gmail.com</a></p>
+          <p><a href="mailto:archies.dev.labs@gmail.com">archies.dev.labs@gmail.com</a></p>
         </section>
       </div>
 
