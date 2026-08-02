@@ -10,7 +10,42 @@
 :root{--bg:#F7F8FA;--card:#FFFFFF;--line:#E4E7EC;--fg:#101828;--dim:#667085;--blue:#2563EB;--blue-soft:#EFF4FF}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:'Plus Jakarta Sans',sans-serif;line-height:1.65}
-a{color:var(--blue);text-decoration:none}
+/* drifting gradient clouds — transform-only animation, GPU compositor, no filter/blur */
+.cloud{position:fixed;z-index:-1;pointer-events:none;will-change:transform}
+.c1{
+  width:70vmax;height:60vmax;top:-25vmax;right:-20vmax;
+  background:
+    radial-gradient(30% 32% at 32% 62%,rgba(147,197,253,.5),rgba(147,197,253,0) 70%),
+    radial-gradient(26% 28% at 58% 50%,rgba(147,197,253,.55),rgba(147,197,253,0) 70%),
+    radial-gradient(22% 24% at 45% 40%,rgba(191,219,254,.6),rgba(191,219,254,0) 70%),
+    radial-gradient(45% 30% at 45% 58%,rgba(147,197,253,.35),rgba(147,197,253,0) 72%);
+  animation:drift1 11s ease-in-out infinite alternate}
+.c2{
+  width:60vmax;height:55vmax;bottom:-22vmax;left:-18vmax;
+  background:
+    radial-gradient(30% 32% at 40% 55%,rgba(199,210,254,.55),rgba(199,210,254,0) 70%),
+    radial-gradient(25% 26% at 62% 48%,rgba(199,210,254,.5),rgba(199,210,254,0) 70%),
+    radial-gradient(20% 22% at 50% 38%,rgba(224,231,255,.65),rgba(224,231,255,0) 70%),
+    radial-gradient(48% 30% at 50% 56%,rgba(199,210,254,.32),rgba(199,210,254,0) 72%);
+  animation:drift2 15s ease-in-out infinite alternate}
+/* paper plane — wavy path via two nested transform-only animations */
+.plane-x{position:fixed;top:16%;left:0;z-index:-1;pointer-events:none;will-change:transform;animation:fly-x 21s linear infinite}
+.plane-y{will-change:transform;animation:fly-y 4.7s ease-in-out infinite alternate}
+.plane-y svg{display:block;width:34px;height:34px;fill:rgba(96,140,220,.55)}
+@keyframes fly-x{from{transform:translateX(-8vw)}to{transform:translateX(108vw)}}
+@keyframes fly-y{
+  0%{transform:translateY(0) rotate(4deg)}
+  100%{transform:translateY(9vh) rotate(14deg)}}
+@media(prefers-reduced-motion:reduce){.cloud,.plane-x,.plane-y{animation:none}}
+@keyframes drift1{
+  0%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(-22vw,14vh) scale(1.15)}
+  100%{transform:translate(-38vw,5vh) scale(.95)}}
+@keyframes drift2{
+  0%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(24vw,-12vh) scale(1.12)}
+  100%{transform:translate(40vw,-3vh) scale(1.22)}}
+a{color:var(--blue);text-decoration:none;cursor:pointer}
 a:hover{text-decoration:underline}
 .wrap{max-width:760px;margin:0 auto;padding:0 24px}
 header{padding:100px 0 60px}
@@ -21,10 +56,18 @@ h1{font-size:clamp(36px,6vw,56px);font-weight:800;letter-spacing:-1.5px;line-hei
 h1 span{color:var(--blue)}
 .summary{margin-top:20px;font-size:17px;color:var(--dim);max-width:560px}
 .links{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
-.btn{border-radius:10px;padding:12px 22px;font-size:14.5px;font-weight:700;transition:.2s;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+.btn{display:inline-block;border-radius:10px;padding:12px 22px;font-size:14.5px;font-weight:700;transition:.2s;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+.links{align-items:center}
 .btn:hover{border-color:var(--blue);color:var(--blue);text-decoration:none}
 .btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
 .btn.primary:hover{background:#1D4ED8;color:#fff}
+/* contact dropdown */
+.contact-menu{position:relative;display:inline-block}
+.contact-menu .menu{position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 20px rgba(16,24,40,.1);padding:6px;opacity:0;visibility:hidden;transform:translateY(-4px);transition:.2s;z-index:10}
+.contact-menu:hover .menu,.contact-menu:focus-within .menu{opacity:1;visibility:visible;transform:translateY(0)}
+.contact-menu .menu a{display:flex;flex-direction:column;gap:1px;padding:10px 14px;border-radius:8px;color:var(--fg);font-size:14px;font-weight:700}
+.contact-menu .menu a:hover{background:var(--blue-soft);color:var(--blue);text-decoration:none}
+.contact-menu .menu a small{font-size:12.5px;font-weight:500;color:var(--dim)}
 section{padding:48px 0}
 h2{font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:32px}
 /* timeline */
@@ -106,6 +149,11 @@ Time: ${new Date().toLocaleString()}
 
 </head>
 <body>
+<div class="cloud c1"></div>
+<div class="cloud c2"></div>
+<div class="plane-x"><div class="plane-y">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+</div></div>
 <div class="wrap">
 
 <header>
@@ -113,9 +161,15 @@ Time: ${new Date().toLocaleString()}
   <h1>Hi, I'm Shiv.<br>I build <span>fast systems.</span></h1>
   <p class="summary">Full-stack engineer, 6+ years — Node.js microservices, AWS serverless, and caching architectures that keep things quick under real load. Chandigarh, IN.</p>
   <div class="links">
-    <a class="btn primary" href="mailto:architshiv@gmail.com">Get in touch</a>
-    <a class="btn" href="https://github.com/shivarchit">GitHub</a>
-    <a class="btn" href="https://linkedin.com/in/shivarchit">LinkedIn</a>
+    <div class="contact-menu">
+      <a class="btn primary" href="mailto:architshiv@gmail.com">Get in touch</a>
+      <div class="menu">
+        <a href="mailto:architshiv@gmail.com">Email<small>architshiv@gmail.com</small></a>
+        <a href="tel:+919779655828">Call<small>+91 97796 55828</small></a>
+      </div>
+    </div>
+    <a class="btn" target="_blank" rel="noopener" href="https://github.com/shivarchit">GitHub</a>
+    <a class="btn" target="_blank" rel="noopener" href="https://linkedin.com/in/shivarchit">LinkedIn</a>
   </div>
 </header>
 
@@ -154,24 +208,24 @@ Time: ${new Date().toLocaleString()}
 <section>
   <h2>Projects</h2>
   <div class="projects">
-    <a class="proj" href="https://github.com/shivarchit/shellhub">
+    <a class="proj" target="_blank" rel="noopener" href="https://github.com/shivarchit/shellhub">
       <span class="lang">Go · React</span>
       <h3>shellhub</h3>
       <p>Lightweight web-based SSH client & server management. Single binary, system tray.</p>
     </a>
-    <a class="proj" href="https://github.com/shivarchit/Lumina-TUI">
+    <a class="proj" target="_blank" rel="noopener" href="https://github.com/shivarchit/Lumina-TUI">
       <span class="lang">Go</span>
       <h3>Lumina-TUI</h3>
       <p>Terminal UI for Lumina — fast, keyboard-driven, written in Go.</p>
     </a>
   </div>
-  <p style="margin-top:16px;font-size:14.5px"><a href="https://github.com/shivarchit">All repos on GitHub →</a></p>
+  <p style="margin-top:16px;font-size:14.5px"><a target="_blank" rel="noopener" href="https://github.com/shivarchit">All repos on GitHub →</a></p>
 </section>
 
 <footer>
   <div class="card">
     <h2>Let's work together</h2>
-    <p><a href="mailto:architshiv@gmail.com">architshiv@gmail.com</a> · +91 97796 55828 · <a href="https://github.com/shivarchit">github.com/shivarchit</a></p>
+    <p><a href="mailto:architshiv@gmail.com">architshiv@gmail.com</a> · +91 97796 55828 · <a target="_blank" rel="noopener" href="https://github.com/shivarchit">github.com/shivarchit</a></p>
   </div>
 </footer>
 
