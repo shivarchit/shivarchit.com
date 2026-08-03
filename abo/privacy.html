@@ -7,396 +7,399 @@
 <title>abo — Privacy Policy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,900&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* Prism — dark room by default, flip to daylight with the toggle.
+     Subscription plan chips fly through like the paper plane. */
   :root {
-    --text: #0F172A;
-    --text-sub: #475569;
-    --text-muted: #64748B;
-    --accent: #0EA5E9;
-    --accent-deep: #0284C7;
+    --bg: #0A0A13;
+    --text: #F2F2FA;
+    --sub: rgba(242,242,250,0.65);
+    --muted: rgba(242,242,250,0.45);
+    --hairline: rgba(242,242,250,0.10);
+    --spectrum: linear-gradient(115deg, #7DD3FC, #A5B4FC, #F0ABFC, #FDA4AF, #FDE68A, #86EFAC, #7DD3FC);
+    --head-grad: linear-gradient(115deg, #7DD3FC, #A5B4FC 45%, #F0ABFC 85%);
+    --ghost-grad: linear-gradient(115deg, #F0ABFC, #7DD3FC);
+    --link: #A5B4FC;
+    --link-line: rgba(165,180,252,0.35);
+    --code-bg: rgba(125,211,252,0.10);
+    --code-fg: #7DD3FC;
+    --code-border: rgba(125,211,252,0.28);
+    --chip-bg: rgba(255,255,255,0.06);
+    --plan-bg: rgba(22,22,34,0.82);
+    --chip-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    --icon-glow: 0 0 30px rgba(165,180,252,0.25);
+    --caustic-a: rgba(165,180,252,0.16);
+    --caustic-b: rgba(125,211,252,0.14);
+    --caustic-c: rgba(240,171,252,0.11);
+    --caustic-d: rgba(253,230,138,0.09);
+    --rule-glow: 0 0 14px rgba(165,180,252,0.4);
+  }
+  [data-theme="light"] {
+    --bg: #FFFFFF;
+    --text: #17172B;
+    --sub: #52526B;
+    --muted: #7C7C94;
+    --hairline: rgba(23,23,43,0.08);
+    --head-grad: linear-gradient(115deg, #0EA5E9, #8B5CF6 45%, #EC4899 85%);
+    --ghost-grad: linear-gradient(115deg, #F0ABFC, #7DD3FC);
+    --link: #7C3AED;
+    --link-line: rgba(124,58,237,0.3);
+    --code-bg: rgba(125,211,252,0.14);
+    --code-fg: #0369A1;
+    --code-border: rgba(125,211,252,0.4);
+    --chip-bg: rgba(255,255,255,0.7);
+    --plan-bg: rgba(255,255,255,0.9);
+    --chip-shadow: 0 6px 18px rgba(23,23,43,0.08);
+    --icon-glow: 0 8px 22px rgba(23,23,43,0.16);
+    --caustic-a: rgba(165,180,252,0.20);
+    --caustic-b: rgba(125,211,252,0.18);
+    --caustic-c: rgba(240,171,252,0.14);
+    --caustic-d: rgba(253,230,138,0.14);
+    --rule-glow: none;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
   body {
     font-family: 'DM Sans', system-ui, sans-serif;
-    color: var(--text);
-    min-height: 100vh; line-height: 1.6;
+    background: var(--bg); color: var(--text);
+    line-height: 1.65; -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    transition: background 0.35s ease, color 0.35s ease;
   }
 
-  /* ============================================
-     LAYER 1 — Vivid wallpaper that bleeds through glass
-     ============================================ */
-  .wallpaper {
-    position: fixed; inset: 0; z-index: 0;
-    overflow: hidden;
-    background:
-      radial-gradient(ellipse 55% 45% at 12% 18%, #7DD3FC 0%, transparent 60%),
-      radial-gradient(ellipse 50% 55% at 88% 22%, #C4B5FD 0%, transparent 65%),
-      radial-gradient(ellipse 45% 40% at 50% 100%, #FBCFE8 0%, transparent 70%),
-      radial-gradient(ellipse 40% 35% at 95% 78%, #BBF7D0 0%, transparent 70%),
-      radial-gradient(ellipse 35% 30% at 5% 70%, #FED7AA 0%, transparent 70%),
-      linear-gradient(135deg, #EFF6FF 0%, #FAF5FF 50%, #FDF2F8 100%);
-  }
-  /* Animated chunky blobs for living feel */
-  .blob {
-    position: absolute; border-radius: 50%; filter: blur(60px);
-    animation: drift 32s ease-in-out infinite;
-    will-change: transform;
-  }
-  .blob.b1 { width: 480px; height: 480px; background: #38BDF8; top: -10%; left: -8%; opacity: 0.55; }
-  .blob.b2 { width: 420px; height: 420px; background: #A78BFA; top: 25%; right: -10%; opacity: 0.50; animation-delay: -8s; }
-  .blob.b3 { width: 380px; height: 380px; background: #F472B6; bottom: -12%; left: 28%; opacity: 0.45; animation-delay: -16s; }
-  .blob.b4 { width: 340px; height: 340px; background: #FCD34D; top: 55%; left: -12%; opacity: 0.40; animation-delay: -24s; }
-  .blob.b5 { width: 280px; height: 280px; background: #6EE7B7; top: 8%; left: 45%; opacity: 0.35; animation-delay: -12s; }
-  @keyframes drift {
-    0%,100% { transform: translate(0,0) scale(1); }
-    33% { transform: translate(50px,-40px) scale(1.08); }
-    66% { transform: translate(-40px,30px) scale(0.94); }
-  }
-
-  /* Subtle grain overlay over wallpaper for texture */
-  .grain {
+  .caustics {
     position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-    mix-blend-mode: overlay; opacity: 0.6;
+    background:
+      radial-gradient(ellipse 42% 32% at 85% 6%, var(--caustic-a) 0%, transparent 65%),
+      radial-gradient(ellipse 38% 30% at 6% 28%, var(--caustic-b) 0%, transparent 65%),
+      radial-gradient(ellipse 32% 26% at 94% 68%, var(--caustic-c) 0%, transparent 65%),
+      radial-gradient(ellipse 30% 24% at 12% 90%, var(--caustic-d) 0%, transparent 65%);
   }
 
-  .stage {
-    position: relative; z-index: 2;
-    min-height: 100vh; padding: 60px 22px 80px;
-    display: flex; align-items: flex-start; justify-content: center;
+  /* ── flying subscription plans — plane-style fly-through ──
+     outer .flyer: linear horizontal sweep across viewport
+     inner .plan: sine bob for the wavy path */
+  .drifts {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+    /* hide chips while they pass behind the content column */
+    -webkit-mask-image: linear-gradient(to right,
+      #000 0, #000 calc(50% - 380px), transparent calc(50% - 330px),
+      transparent calc(50% + 330px), #000 calc(50% + 380px), #000 100%);
+    mask-image: linear-gradient(to right,
+      #000 0, #000 calc(50% - 380px), transparent calc(50% - 330px),
+      transparent calc(50% + 330px), #000 calc(50% + 380px), #000 100%);
   }
-
-  /* ============================================
-     LAYER 2 — THE GLASS — multi-layer Apple Liquid Glass
-     ============================================ */
-  .glass-panel {
-    position: relative;
-    width: 100%; max-width: 600px;
-    padding: 56px 44px;
-    border-radius: 32px;
-    isolation: isolate;
-    animation: float 7s ease-in-out infinite;
+  .flyer {
+    position: absolute; left: 0; top: 0;
+    animation: flyLTR var(--dur, 40s) linear infinite;
+    animation-delay: var(--delay, 0s);
     will-change: transform;
   }
-  @keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
+  .flyer.rtl { animation-name: flyRTL; }
+  @keyframes flyLTR {
+    from { transform: translate3d(-340px, var(--lane), 0); }
+    to   { transform: translate3d(calc(100vw + 60px), var(--lane), 0); }
   }
-  .wallpaper,
-.glass-panel,
-.blob {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-@media (max-width: 768px) {
-  .glass-panel::before {
-    backdrop-filter: blur(16px) saturate(140%);
-    -webkit-backdrop-filter: blur(16px) saturate(140%);
+  @keyframes flyRTL {
+    from { transform: translate3d(calc(100vw + 60px), var(--lane), 0); }
+    to   { transform: translate3d(-340px, var(--lane), 0); }
+  }
+  .plan {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Instrument Sans'; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.2px; color: var(--sub);
+    padding: 8px 14px; border-radius: 999px;
+    /* ponytail: opaque bg, no backdrop-filter — blur under a moving chip
+       re-samples every frame; solid tint reads the same at this size */
+    background: var(--plan-bg);
+    border: 1px solid var(--hairline);
+    box-shadow: var(--chip-shadow);
+    white-space: nowrap;
+    animation: wave var(--wave, 7s) ease-in-out infinite alternate;
+  }
+  @keyframes wave {
+    from { transform: translateY(-16px) rotate(-1.5deg); }
+    to   { transform: translateY(16px) rotate(1.5deg); }
+  }
+  .flyer.far .plan { scale: 0.82; opacity: 0.45; filter: blur(1.3px); }
+  .flyer.near .plan { opacity: 0.85; }
+  .plan .logo { width: 15px; height: 15px; border-radius: 4px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; }
+  .plan .logo svg { width: 100%; height: 100%; display: block; }
+  .plan .price { color: var(--muted); font-weight: 500; }
+
+  .f1 { --lane: 14vh; --dur: 38s; --delay: -12s; --wave: 6s; }
+  .f2 { --lane: 27vh; --dur: 52s; --delay: -35s; --wave: 8s; }
+  .f3 { --lane: 45vh; --dur: 44s; --delay: -8s;  --wave: 7s; }
+  .f4 { --lane: 60vh; --dur: 58s; --delay: -24s; --wave: 9s; }
+  .f5 { --lane: 76vh; --dur: 47s; --delay: -40s; --wave: 6.5s; }
+  .f6 { --lane: 88vh; --dur: 62s; --delay: -18s; --wave: 8.5s; }
+  @media (prefers-reduced-motion: reduce) { .flyer, .plan { animation: none !important; } .drifts { display: none; } }
+  @media (max-width: 720px) { .f3, .f5, .f6 { display: none; } .plan { font-size: 11px; } }
+
+  .wrap {
+    position: relative; z-index: 1;
+    max-width: 640px; margin: 0 auto;
+    padding: 64px 24px 90px;
   }
 
-  .blob {
-    animation: none;
-  }
-
-  .grain {
-    display: none;
-  }
-}
-
-  /* The actual glass surface — base layer */
-  .glass-panel::before {
-    content: '';
-    position: absolute; inset: 0;
-    border-radius: 32px;
-    /* TRUE liquid glass: very low alpha, heavy blur, saturate boost */
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(100px) saturate(280%) brightness(1.08);
-    -webkit-backdrop-filter: blur(100px) saturate(280%) brightness(1.08);
-    /* Hairline border + asymmetric inner highlights mimicking real glass rim */
-    border: 1px solid rgba(255,255,255,0.4);
-    box-shadow:
-      /* outer drops — floating */
-      0 60px 140px -20px rgba(15,23,42,0.30),
-      0 30px 60px -15px rgba(15,23,42,0.20),
-      0 8px 20px -5px rgba(15,23,42,0.12),
-      /* inset rim highlights — bright top, dim bottom */
-      inset 0 2px 0 rgba(255,255,255,0.7),
-      inset 0 -1px 0 rgba(255,255,255,0.05),
-      inset 1.5px 0 0 rgba(255,255,255,0.35),
-      inset -1.5px 0 0 rgba(255,255,255,0.18);
-    z-index: -2;
-  }
-
-  /* Top-half specular sheen — bright light catching the upper edge */
-  .glass-panel::after {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 60%;
-    border-radius: 32px 32px 0 0;
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.18) 30%, transparent 100%),
-      radial-gradient(ellipse 60% 80% at 25% 0%, rgba(255,255,255,0.5) 0%, transparent 60%);
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  /* Hotspot + corner lensing — separate decorative div */
-  .glass-deco {
-    position: absolute; inset: 0;
-    border-radius: 32px;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  /* Bright hotspot top-right */
-  .glass-deco::before {
-    content: '';
-    position: absolute; top: -40px; right: 8%;
-    width: 200px; height: 200px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,0.55) 0%, transparent 60%);
-    filter: blur(20px);
-    mix-blend-mode: overlay;
-  }
-  /* Diagonal gloss streak */
-  .glass-deco::after {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(115deg, transparent 38%, rgba(255,255,255,0.18) 50%, transparent 62%);
-    mix-blend-mode: overlay;
-  }
-
-  .glass-panel > .content { position: relative; z-index: 1; }
-
-  /* ============================================
-     CONTENT
-     ============================================ */
-  .top-row {
+  /* ── header ── */
+  .top {
     display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 36px;
+    margin-bottom: 52px;
   }
-  .brand-row {
-    display: inline-flex; gap: 12px; align-items: center;
+  .brand { display: flex; gap: 13px; align-items: center; }
+  .brand img { width: 44px; height: 44px; border-radius: 12px; display: block;
+    border: 1px solid var(--hairline);
+    box-shadow: var(--icon-glow); }
+  .brand-name { font-family: 'Instrument Sans'; font-weight: 700; font-size: 16px; letter-spacing: -0.3px; }
+  .brand-tag { font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0.4px; }
+  .top-right { display: flex; align-items: center; gap: 10px; }
+  .pill {
+    position: relative;
+    font-family: 'Instrument Sans'; font-size: 12px; font-weight: 600;
+    color: var(--sub); letter-spacing: 0.3px;
+    padding: 7px 14px; border-radius: 999px;
+    background: var(--chip-bg);
+    backdrop-filter: blur(8px);
   }
-  .brand-mark {
-    width: 44px; height: 44px; border-radius: 12px;
-    background: #08080F;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 6px 18px rgba(8,8,15,0.22), 0 1px 2px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.06);
-    overflow: hidden;
+  .pill::before, .theme-btn::before {
+    content: ''; position: absolute; inset: 0; border-radius: 999px; padding: 1.5px;
+    background: var(--spectrum);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0.8;
   }
-  .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .brand-text { display: flex; flex-direction: column; gap: 1px; }
-  .brand-name { font-family: 'Instrument Sans'; font-weight: 700; font-size: 16px; letter-spacing: -0.3px; color: var(--text); }
-  .brand-tag { font-size: 11px; color: var(--text-muted); font-weight: 500; letter-spacing: 0.4px; }
+  .theme-btn {
+    position: relative; cursor: pointer;
+    width: 34px; height: 34px; border-radius: 999px;
+    background: var(--chip-bg); border: none;
+    backdrop-filter: blur(8px);
+    display: grid; place-items: center;
+    color: var(--sub);
+  }
+  .theme-btn:hover { color: var(--text); }
+  .theme-btn svg { width: 16px; height: 16px; display: block; }
+  /* convention: show the theme you'll switch TO — sun in dark, moon in light */
+  .theme-btn .moon { display: none; }
+  [data-theme="light"] .theme-btn .moon { display: block; }
+  [data-theme="light"] .theme-btn .sun { display: none; }
 
-  .version-pill {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 5px 11px; border-radius: 999px;
-    background: rgba(15,23,42,0.06);
-    border: 1px solid rgba(15,23,42,0.08);
-    font-size: 10px; font-weight: 600; color: var(--text-sub);
-    letter-spacing: 0.3px;
-  }
-  .version-pill::before {
-    content: ''; width: 6px; height: 6px; border-radius: 50%;
-    background: #10B981;
-    box-shadow: 0 0 6px rgba(16,185,129,0.6);
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%,100% { opacity: 1; }
-    50% { opacity: 0.5; }
-  }
-
+  /* ── hero ── */
   h1 {
-    font-family: 'DM Sans', sans-serif; font-weight: 800;
-    font-size: 44px; letter-spacing: -1.8px; line-height: 1;
-    color: var(--text); margin-bottom: 18px;
+    font-weight: 900;
+    font-size: clamp(42px, 8vw, 64px);
+    letter-spacing: -2.5px; line-height: 1.0;
+    margin-bottom: 20px;
   }
   h1 em {
-    font-style: normal;
-    background: linear-gradient(135deg, var(--accent) 0%, #6366F1 60%, #EC4899 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    font-style: normal; position: relative; white-space: nowrap;
+    background: var(--head-grad);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  .lede {
-    font-size: 16px; color: var(--text-sub); line-height: 1.55;
-    max-width: 480px; font-weight: 400;
+  h1 em::after {
+    content: attr(data-text); position: absolute; left: 3px; top: 2.5px;
+    background: var(--ghost-grad);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.38; z-index: -1;
   }
+  .lede { font-size: 16.5px; color: var(--sub); max-width: 500px; }
   .lede b { color: var(--text); font-weight: 600; }
 
-  /* Promise — clean borders, no nested glass */
-  .promise {
-    margin: 40px 0 32px;
-    padding: 22px 0 18px;
-    border-top: 1px solid rgba(15,23,42,0.10);
-    border-bottom: 1px solid rgba(15,23,42,0.10);
+  /* ── promise shards ── */
+  .shards {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin: 40px 0 56px;
   }
-  .promise-row {
-    display: flex; gap: 14px; align-items: center;
-    padding: 9px 0;
-    font-size: 14.5px; color: var(--text); font-weight: 500;
+  .shard {
+    position: relative;
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 13.5px; font-weight: 600;
+    padding: 11px 18px; border-radius: 14px;
+    background: var(--chip-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--chip-shadow);
   }
-  .check, .cross {
-    flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800;
+  .shard::before {
+    content: ''; position: absolute; inset: 0; border-radius: 14px; padding: 1.5px;
+    background: var(--spectrum);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0.75;
   }
-  .check {
-    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
-    color: #fff;
-    box-shadow: 0 0 10px rgba(14,165,233,0.4), inset 0 1px 0 rgba(255,255,255,0.4);
+  .shard .glyph {
+    font-family: 'Instrument Sans'; font-weight: 800; font-size: 12px;
+    background: var(--head-grad);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  .cross {
-    background: rgba(15,23,42,0.07);
-    color: var(--text-muted);
-  }
+  .shard.off { color: var(--muted); background: transparent; box-shadow: none; }
+  .shard.off::before { background: var(--hairline); opacity: 1; }
+  .shard.off .glyph { -webkit-text-fill-color: var(--muted); background: none; }
 
-  /* Sections — numbered counters */
-  .sections { counter-reset: sect; }
+  /* ── sections ── */
   section {
-    margin-bottom: 22px;
-    counter-increment: sect;
+    position: relative;
+    padding: 26px 0 26px 30px;
+    border-top: 1px solid var(--hairline);
+  }
+  section::before {
+    content: ''; position: absolute; left: 0; top: 26px; bottom: 26px;
+    width: 3.5px; border-radius: 4px;
+    background: var(--spectrum);
+    opacity: 0.9;
+    box-shadow: var(--rule-glow);
   }
   section h2 {
     font-family: 'Instrument Sans'; font-weight: 700;
-    font-size: 13px; letter-spacing: 0.4px;
-    color: var(--text); margin-bottom: 8px;
-    display: flex; align-items: center; gap: 10px;
+    font-size: 16px; letter-spacing: -0.2px;
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 9px;
   }
-  section h2::before {
-    content: counter(sect, decimal-leading-zero);
-    font-family: 'DM Sans'; font-weight: 700;
-    font-size: 10px; letter-spacing: 1px;
-    color: var(--accent); padding: 2px 7px;
-    background: rgba(14,165,233,0.10);
-    border: 1px solid rgba(14,165,233,0.20);
-    border-radius: 5px;
+  section h2 .num {
+    font-size: 12px; font-weight: 700; letter-spacing: 1px;
+    background: var(--head-grad);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  section p {
-    font-size: 14.5px; color: var(--text-sub); line-height: 1.65;
-  }
-  section a {
-    color: var(--accent-deep); text-decoration: none; font-weight: 600;
-    border-bottom: 1px solid rgba(2,132,199,0.35);
-    transition: border-color 0.2s;
-  }
-  section a:hover { border-bottom-color: var(--accent-deep); }
+  section p { font-size: 15px; color: var(--sub); line-height: 1.7; }
   section b { color: var(--text); font-weight: 600; }
+  section a {
+    color: var(--link); font-weight: 600; text-decoration: none;
+    border-bottom: 1.5px solid var(--link-line);
+  }
+  section a:hover { border-bottom-color: var(--link); }
   code {
-    font-family: 'Instrument Sans', sans-serif; font-size: 12.5px;
-    background: rgba(14,165,233,0.10);
-    color: var(--accent-deep);
-    padding: 1.5px 7px; border-radius: 5px;
-    border: 1px solid rgba(14,165,233,0.18);
+    font-family: 'Instrument Sans'; font-size: 13px;
+    background: var(--code-bg); color: var(--code-fg);
+    padding: 2px 8px; border-radius: 6px;
+    border: 1px solid var(--code-border);
   }
 
   footer {
-    margin-top: 36px; padding-top: 20px;
-    border-top: 1px solid rgba(15,23,42,0.08);
-    font-size: 11px; color: var(--text-muted); line-height: 1.7;
-    display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    flex-wrap: wrap;
+    margin-top: 20px; padding-top: 26px;
+    border-top: 1px solid var(--hairline);
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-size: 12.5px; color: var(--muted);
   }
-  footer .left { font-weight: 500; }
-  footer .right a {
-    color: var(--accent-deep); text-decoration: none; font-weight: 600;
+  footer a {
+    font-weight: 700; text-decoration: none;
+    background: var(--head-grad);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  footer .right a:hover { text-decoration: underline; }
 
   @media (max-width: 520px) {
-    .glass-panel { padding: 40px 28px; border-radius: 26px; animation: none; }
-    h1 { font-size: 32px; letter-spacing: -1.2px; }
-    .top-row { flex-direction: column; align-items: flex-start; gap: 14px; }
-    footer { flex-direction: column; align-items: flex-start; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .blob, .glass-panel, .version-pill::before { animation: none !important; }
+    .top { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .top-right { align-self: flex-end; }
+    h1 em { white-space: normal; }
   }
 </style>
 </head>
 <body>
 
-<!-- ====== Wallpaper that bleeds through the glass ====== -->
-<div class="wallpaper">
-  <div class="blob b1"></div>
-  <div class="blob b2"></div>
-  <div class="blob b3"></div>
-  <div class="blob b4"></div>
-  <div class="blob b5"></div>
+<div class="caustics"></div>
+
+<!-- subscription plans flying through, paper-plane style -->
+<div class="drifts" aria-hidden="true">
+  <div class="flyer near f1"><span class="plan">
+    <span class="logo"><svg viewBox="0 0 24 24" fill="#E50914"><path d="M5 2h3.5l4 10.5V2H16.5v20l-3.5-1-4-10.8V21l-4 .8z"/></svg></span>
+    Netflix <span class="price">$15.49 / mo</span>
+  </span></div>
+  <div class="flyer rtl f2"><span class="plan">
+    <span class="logo"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#1DB954"/><path d="M6.5 9.5c3.6-1.1 7.8-.7 10.9 1.2M7 12.5c3-.9 6.3-.5 8.9 1M7.5 15.3c2.4-.7 5-.4 7.1.8" stroke="#0A0A13" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></span>
+    Spotify <span class="price">€10.99 / mo</span>
+  </span></div>
+  <div class="flyer far f3"><span class="plan">
+    <span class="logo"><svg viewBox="0 0 24 24"><rect x="1" y="5" width="22" height="14" rx="4" fill="#FF0000"/><path d="M10 9l6 3-6 3z" fill="#fff"/></svg></span>
+    YouTube Premium <span class="price">₹149 / mo</span>
+  </span></div>
+  <div class="flyer near f4"><span class="plan">
+    <span class="logo"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#00A8E1"/><path d="M6 14.5c3.8 2.6 8.2 2.6 12 0" stroke="#0A0A13" stroke-width="1.7" fill="none" stroke-linecap="round"/><path d="M16.8 14.9l1.6-.4-.3 1.6" stroke="#0A0A13" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    Prime <span class="price">£8.99 / mo</span>
+  </span></div>
+  <div class="flyer rtl far f5"><span class="plan">
+    <span class="logo"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#1F80E0"/><path d="M5 13.5c4.5-5.5 9.5-5.5 14 0-4.5 4-9.5 4-14 0z" fill="#fff"/></svg></span>
+    Hotstar <span class="price">₹299 / mo</span>
+  </span></div>
+  <div class="flyer f6"><span class="plan">
+    <span class="logo"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#8A8A94"/><path d="M12 6.8a4.6 4.6 0 0 1 4.5 3.7 3.4 3.4 0 0 1-.4 6.7H8.4a3.9 3.9 0 0 1-.8-7.7A4.6 4.6 0 0 1 12 6.8z" fill="#fff"/></svg></span>
+    iCloud+ <span class="price">¥130 / mo</span>
+  </span></div>
 </div>
-<div class="grain"></div>
 
-<!-- ====== The glass slab ====== -->
-<div class="stage">
-  <main class="glass-panel">
-    <div class="glass-deco"></div>
+<div class="wrap">
 
-    <div class="content">
-
-      <div class="top-row">
-        <div class="brand-row">
-          <div class="brand-mark"><img src="icon.png" alt="abo"></div>
-          <div class="brand-text">
-            <div class="brand-name">abo</div>
-            <div class="brand-tag">Privacy Policy</div>
-          </div>
-        </div>
-        <div class="version-pill">v1.1 · Jul 24 2026</div>
+  <div class="top">
+    <div class="brand">
+      <img src="icon.png" alt="abo">
+      <div>
+        <div class="brand-name">abo</div>
+        <div class="brand-tag">Privacy Policy</div>
       </div>
-
-      <h1>Your data stays<br>on <em>your phone</em>.</h1>
-      <p class="lede">
-        abo is offline-first. Subscription names, prices, dates — all stored locally in SQLite. No accounts, no tracking, no third-party SDKs.
-      </p>
-
-      <div class="promise">
-        <div class="promise-row"><div class="check">✓</div><div>Stored on your device only</div></div>
-        <div class="promise-row"><div class="check">✓</div><div>Local notifications for renewals</div></div>
-        <div class="promise-row"><div class="check">✓</div><div>Bank SMS parsed on-device — never uploaded</div></div>
-        <div class="promise-row"><div class="check">✓</div><div>Export anytime as JSON or CSV</div></div>
-        <div class="promise-row"><div class="cross">✕</div><div>No analytics, telemetry, or ads</div></div>
-        <div class="promise-row"><div class="cross">✕</div><div>No account, no cloud sync</div></div>
-      </div>
-
-      <div class="sections">
-        <section>
-          <h2>One network call</h2>
-          <p>The app fetches a service catalog from <code>shivarchit.com/abo/catalog.json</code> at most once per day. Anonymous HTTPS GET, no body, no identifiers. That's it.</p>
-        </section>
-
-        <section>
-          <h2>Permissions</h2>
-          <p><b>Notifications</b> for renewal reminders. <b>Alarms &amp; reminders</b> so those fire on time. <b>Internet</b> for the catalog above. <b>SMS</b> — optional, off by default, explained below.</p>
-        </section>
-
-        <section>
-          <h2>SMS scanning — optional, on-device</h2>
-          <p>If you enable <b>Scan SMS for payments</b>, abo reads bank transaction SMS on your device to detect subscription debits (e.g. <code>Rs 649 debited … NETFLIX</code>) and recurring charges. Parsing happens <b>entirely on your phone</b> — message content is never transmitted, uploaded, or shared with anyone; abo has no server. Only payment-shaped bank alerts are considered: personal messages, OTPs and promotions are ignored and never stored. Nothing is recorded automatically — detections wait in a daily review screen until <b>you confirm</b> them. The feature is opt-in during setup, and you can turn it off anytime in Settings or by revoking the SMS permission in Android settings.</p>
-        </section>
-
-        <section>
-          <h2>Your data, your control</h2>
-          <p>Export from Settings. Delete subscriptions in-app. Uninstall to wipe everything — there's nothing on our side.</p>
-        </section>
-
-        <section>
-          <h2>Contact</h2>
-          <p><a href="mailto:archies.dev.labs@gmail.com">archies.dev.labs@gmail.com</a></p>
-        </section>
-      </div>
-
-      <footer>
-        <div class="left">Compliant with GDPR &amp; India DPDP 2023</div>
-        <div class="right"><a href="/">shivarchit.com</a></div>
-      </footer>
-
     </div>
-  </main>
+    <div class="top-right">
+      <div class="pill">v1.1 · Jul 24 2026</div>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle light / dark theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <h1>Your data stays on <em data-text="your phone.">your phone.</em></h1>
+  <p class="lede">abo is offline-first. Subscription names, prices, dates — all stored locally in SQLite. <b>No accounts, no tracking, no third-party SDKs.</b></p>
+
+  <div class="shards">
+    <span class="shard"><span class="glyph">✓</span>On-device only</span>
+    <span class="shard"><span class="glyph">✓</span>Local renewal reminders</span>
+    <span class="shard"><span class="glyph">✓</span>SMS parsed on-device</span>
+    <span class="shard"><span class="glyph">✓</span>Export JSON / CSV</span>
+    <span class="shard off"><span class="glyph">✕</span>No analytics or ads</span>
+    <span class="shard off"><span class="glyph">✕</span>No account, no cloud</span>
+  </div>
+
+  <section>
+    <h2><span class="num">01</span>One network call</h2>
+    <p>The app fetches a service catalog from <code>shivarchit.com/abo/catalog.json</code> at most once per day. Anonymous HTTPS GET, no body, no identifiers. That's it.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span>Permissions</h2>
+    <p><b>Notifications</b> for renewal reminders. <b>Alarms &amp; reminders</b> so those fire on time. <b>Internet</b> for the catalog above. <b>SMS</b> — optional, off by default, explained below.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span>SMS scanning — optional, on-device</h2>
+    <p>If you enable <b>Scan SMS for payments</b>, abo reads bank transaction SMS on your device to detect subscription debits (e.g. <code>Rs 649 debited … NETFLIX</code>) and recurring charges. Parsing happens <b>entirely on your phone</b> — message content is never transmitted, uploaded, or shared with anyone; abo has no server. Only payment-shaped bank alerts are considered: personal messages, OTPs and promotions are ignored and never stored. Nothing is recorded automatically — detections wait in a daily review screen until <b>you confirm</b> them. The feature is opt-in during setup, and you can turn it off anytime in Settings or by revoking the SMS permission in Android settings.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">04</span>Your data, your control</h2>
+    <p>Export from Settings. Delete subscriptions in-app. Uninstall to wipe everything — there's nothing on our side.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">05</span>Contact</h2>
+    <p><a href="mailto:archies.dev.labs@gmail.com">archies.dev.labs@gmail.com</a></p>
+  </section>
+
+  <footer>
+    <span>Compliant with GDPR &amp; India DPDP 2023</span>
+    <a href="/">shivarchit.com</a>
+  </footer>
+
 </div>
 
+<script>
+  const root = document.documentElement, btn = document.getElementById('themeBtn');
+  if (localStorage.aboTheme) root.dataset.theme = localStorage.aboTheme;
+  btn.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'light' ? '' : 'light';
+    localStorage.aboTheme = root.dataset.theme;
+  });
+</script>
 </body>
 </html>
